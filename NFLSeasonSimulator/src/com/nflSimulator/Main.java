@@ -1,6 +1,7 @@
 package com.nflSimulator;
 
 import java.io.IOException;
+
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
@@ -10,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class Main extends HttpServlet {
 
-	public void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException {
-		System.out.println("Main started");
+	public void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+		
+		PrintWriter out = res.getWriter();
+		
 		ArrayList<Conference> NFL = new ArrayList<Conference>();
 		
 		Conference NFC = new Conference("NFC");
@@ -72,8 +75,6 @@ public class Main extends HttpServlet {
 		
 		int counter = 0;
 		System.out.println("Things are happening?");
-		PrintWriter out = res.getWriter();
-		out.println("Hello hello yo0");
 		out.println(firstSeason.getStandingsString(NFC));
 		out.println(firstSeason.getPlayoffSeeds(NFC));
 		
